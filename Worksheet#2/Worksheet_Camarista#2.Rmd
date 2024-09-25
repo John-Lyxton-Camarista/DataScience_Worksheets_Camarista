@@ -151,11 +151,16 @@ Ranks.RData
 #### 9. Download the Hotels-Vienna https://tinyurl.com/Hotels-Vienna
 ```{r}
 #- a. Import the excel file into your RStudio.
-# What is the R script? What is the output?
+# What is the R script?
 
 Hotels_Vienna_data <- read.csv("hotels-vienna.xlsx - hotels-vienna.csv")
-Hotels_Vienna_data
 ```
+
+```{r}
+#- b. How many dimensions does the dataset have? What is the R script? What is its output?
+dim(Hotels_Vienna_data)
+```
+
 ```{r}
 #- c. Select columns country, neighborhood, price, starts, accommodation_type, and ratings. Write the R script.
 
@@ -175,7 +180,7 @@ tail(select_column)
 #### Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down
 ```{r}
 #- a. Write the R scripts and its output.
-vegetables <- list("Water spinach", "Tomato", "Eggplant", "Squash", "Moringa leaves", "String beans", "Bitter gourd", "Lady finger", "Taro", "Bokchoy")
+vegetables <- list("Water spinach", "Tomato", "Eggplant", "Squash", "Moringa leaves", "String beans", "Bitter gourd", "Lady finger", "Taro", "Bok choy")
 vegetables
 ```
 ```{r}
@@ -195,7 +200,7 @@ print(paste("There are ", datapoints, "datapoints in my Vegetable list"))
 vegetables <- vegetables[-c(5, 10, 15)]
 vegetables
 datapoints <- length(vegetables)
-print(paste("There are ", datapoints, "datapoints in my Vegetable list"))
+print(paste("There are ", datapoints, "vegetables in my Vegetable list"))
 ```
 
 
