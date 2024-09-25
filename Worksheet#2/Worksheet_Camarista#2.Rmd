@@ -126,14 +126,11 @@ print(celebrity_data)
 ```{r}
 #- b. Modify the power ranking and pay of J.K. Rowling. Change power ranking to 15 and pay to 90. Write the R scripts and its output.
 
-power_ranking <- 1:25
-
-celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "J.K. Rowling", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson",  "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
-
-pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 90, 233, 34, 40, 47, 25, 39, 45, 32, 40, 31)
+power_ranking[19] <- 15
+pay[19] <- 90
 
 celebrity_data <- data.frame(PowerRanking = power_ranking, CelebrityName = celebrity_name, Pay = pay)
-celebrity_data
+print(celebrity_data)
 ```
 ```{r}
 #- C. Create an excel file from the table above and save it as csv file(PowerRanking). Import the CSV file into the RStudio. What is the R script?

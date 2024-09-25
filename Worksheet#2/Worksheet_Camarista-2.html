@@ -499,14 +499,11 @@ print(celebrity_data)</code></pre>
 ## 25           25          Kobe Bryant  31</code></pre>
 <pre class="r"><code>#- b. Modify the power ranking and pay of J.K. Rowling. Change power ranking to 15 and pay to 90. Write the R scripts and its output.
 
-power_ranking &lt;- 1:25
-
-celebrity_name &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;, &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;, &quot;Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;J.K. Rowling&quot;, &quot;George Lucas&quot;, &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;,  &quot;Bradd Pitt&quot;, &quot;Peter Jackson&quot;, &quot;Dr. Phil McGraw&quot;, &quot;Jay Leno&quot;, &quot;Celine Dion&quot;, &quot;Kobe Bryant&quot;)
-
-pay &lt;- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 90, 233, 34, 40, 47, 25, 39, 45, 32, 40, 31)
+power_ranking[19] &lt;- 15
+pay[19] &lt;- 90
 
 celebrity_data &lt;- data.frame(PowerRanking = power_ranking, CelebrityName = celebrity_name, Pay = pay)
-celebrity_data</code></pre>
+print(celebrity_data)</code></pre>
 <pre><code>##    PowerRanking        CelebrityName Pay
 ## 1             1           Tom Cruise  67
 ## 2             2       Rolling Stones  90
@@ -522,11 +519,11 @@ celebrity_data</code></pre>
 ## 12           12         Donald Trump  44
 ## 13           13         Muhammad Ali  55
 ## 14           14       Paul McCartney  40
-## 15           15         J.K. Rowling  90
-## 16           16         George Lucas 233
-## 17           17           Elton John  34
-## 18           18      David Letterman  40
-## 19           19       Phil Mickelson  47
+## 15           15         George Lucas 233
+## 16           16           Elton John  34
+## 17           17      David Letterman  40
+## 18           18       Phil Mickelson  47
+## 19           15         J.K. Rowling  90
 ## 20           20           Bradd Pitt  25
 ## 21           21        Peter Jackson  39
 ## 22           22      Dr. Phil McGraw  45
@@ -545,8 +542,8 @@ Ranks.RData</code></pre>
 ## 11           11 Bruce Springsteen  55
 ## 12           12      Donald Trump  44
 ## 13           13      Muhammad Ali  55
-## 14           14      J.K. Rowling  40
-## 15           15    Paul McCartney  90
+## 14           14    Paul McCartney  40
+## 15           15      J.K. Rowling  90
 ## 16           16      George Lucas 233
 ## 17           17        Elton John  34
 ## 18           18   David Letterman  40
