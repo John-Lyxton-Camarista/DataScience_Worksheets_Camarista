@@ -138,13 +138,11 @@ arr
 ```{r}
 #- b. How many dimensions do your array have?
 count <- length(dim(arr))
-print(paste("My array has", count, "dimensions"))
+print(paste("My array has", count, "dimensions "))
 ```
 ```{r}
 #- c. Name the rows as lowercase letters and columns as uppercase letters starting from the A. The array names should be “1st-Dimensional Array”, “2nd-Dimensional Array”, and “3rd-Dimensional Array”. What will be the R codes and its output?
-dimnames(arr) <- list(
-  letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array")
-)
+dimnames(arr) <- list(letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array"))
 arr
 ```
 
