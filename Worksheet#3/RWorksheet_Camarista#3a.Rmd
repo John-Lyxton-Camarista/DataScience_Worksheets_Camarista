@@ -129,6 +129,25 @@ mat
 ## Using Arrays
 - Array can have more than two dimensions by using the array() function and dim() to specify the dimensions
 
+#### 3. An array contains 1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1
+```{r}
+#- a. Create an array for the above numeric values. Each values will be repeated twice. What will be the R code if you are to create a three-dimensional array with 4 columns and 2 rows. What will be its output?
+arr <- array(rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), times = 2), dim = c(2, 4, 3))
+arr
+```
+```{r}
+#- b. How many dimensions do your array have?
+count <- length(dim(arr))
+print(paste("My array has", count, "dimensions"))
+```
+```{r}
+#- c. Name the rows as lowercase letters and columns as uppercase letters starting from the A. The array names should be “1st-Dimensional Array”, “2nd-Dimensional Array”, and “3rd-Dimensional Array”. What will be the R codes and its output?
+dimnames(arr) <- list(
+  letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array")
+)
+arr
+```
+
 
 
 
