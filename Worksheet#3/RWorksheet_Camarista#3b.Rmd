@@ -119,7 +119,15 @@ subset(HouseholdData[,c(2:3)], Sex == 2 & Fathers_Occupation == "Driver")
 #Write the codes and its output.
 subset(HouseholdData[,c(1,5)], Siblings_at_School >= 5)
 ```
-  
+#### 4. Interpret the Graph
+  - The graph is a Bar graph titled: "Sentiments of Tweets per day". 
+    + The graph date ranges from July 14, 2020 to July 22, 2020.
+    + Each day has 3 bars: *Red* for Negative, *Yellow* for Neutral, and *Blue* for Positive.
+    + The peak of red bar was in July 15. 
+    + The peak of yellow bar was also in July 15.
+    + And the peak of blue bar was in July 21.
+    + The Y-axis of the graph represents the number of tweets. Ranging from 0 to more than 3500.
+    + The highest number of Tweets was on July 15, 2020. With around 4000 **Negative** tweets.
   
   
   
