@@ -1,0 +1,124 @@
+---
+title: "RWorksheet_Camarista#3b"
+author: "John Lyxton Camarista"
+date: "2024-10-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### 1. Create a data frame using the table below.
+```{r}
+# a. Write the codes.
+dataFrame <- data.frame(
+  Respondents = 1:20,
+  Sex = c(2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2),
+  FathersOccupation = c(1, 3, 3, 3, 1, 2, 2, 3, 1, 3, 1, 3, 1, 2, 2, 3, 1, 3, 2, 1),
+  PersonsAtHome = c(5, 7, 3, 8, 9, 6, 7, 8, 4, 6, 8, 5, 6, 9, 1, 6, 11, 7, 7, 6),
+  SiblingsAtSchool = c(6, 4, 3, 1, 8, 5, 5, 2, 2, 3, 1, 2, 2, 1, 1, 6, 5, 1, 2, 2),
+  TypesOfHouses = c(1, 3, 1, 3, 3, 2, 1, 3, 3, 2, 3, 2, 1, 3, 2, 3, 1, 3, 3, 2))
+dataFrame
+```
+```{r}
+#b. Describe the data. Get the structure or the summary of the data
+str(dataFrame)  
+summary(dataFrame)
+```
+  * the data frame has 20 rows and 6 columns.
+    + There are 20 respondents
+    + In sex, 1 is for male and 2 is for female
+    + In father's occupation, 1 is for farmer, 2 for driver, and 3 for others
+    + The Person's at home shows how many people living in the respondent's house
+    + Siblings at schools shows how many siblings of the respondents are still attending school
+    + In types of house, 1 is for wood, 2 is for semi-concrete ans 3 for concrete  
+    
+```{r}
+#c. Is the mean number of siblings attending is 5?
+meanSiblings <- mean(dataFrame$SiblingsAtSchool)
+
+print(paste(meanSiblings, "is the mean of Sibling attending school"))
+```
+```{r}
+#d. Extract the 1st two rows and then all the columns using the subsetting functions.
+#Write the codes and its output.
+subset(dataFrame[1:2, ])
+```
+```{r}
+#e. Extract 3rd and 5th row with 2nd and 4th column. Write the codes and its result.
+dataFrame[c(3, 5), c(2, 4)]
+```
+```{r}
+#f. Select the variable types of houses then store the vector that results as types_houses.
+#Write the codes.
+types_houses <- dataFrame$TypesOfHouses
+types_houses
+```
+```{r}
+#g. Select only all Males respondent that their father occupation was farmer. 
+#Write the codes and its output.
+male_farmer <- dataFrame[dataFrame$Sex == 1 & dataFrame$FathersOccupation == 1, ]
+male_farmer
+```
+```{r}
+#h. Select only all females respondent that have greater than or equal to 5 number of siblings attending school. 
+#Write the codes and its outputs.
+female_siblings <- dataFrame[dataFrame$Sex == 2 & dataFrame$SiblingsAtSchool >= 5, ]
+female_siblings
+```
+  #### 2. Write a R program to create an empty data frame. Using the following codes:
+```{r}
+df = data.frame(Ints=integer(),
+
+Doubles=double(), Characters=character(),
+Logicals=logical(),
+Factors=factor(),
+stringsAsFactors=FALSE)
+
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+  * The structure of the empty data frame shows no data but has predefined columns with their respective data types.  
+  
+#### 3. Create a .csv file of this. Save it as HouseholdData.csv
+  
+```{r}
+#a. Import the csv file into the R environment. Write the codes.
+HouseholdData <- read.csv("E:/Github/Data Science Worksheets/DataScience_Worksheets_Camarista/Worksheet#3/HouseholdData.csv")
+HouseholdData
+```
+```{r}
+#b. Convert the Sex into factor using factor() function and change it into integer.
+#[Legend: Male = 1 and Female = 2]. Write the R codes and its output.
+HouseholdData$sex <- factor(HouseholdData$sex, levels = c(1, 2), labels = c("Male", "Female"))
+HouseholdData
+```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
