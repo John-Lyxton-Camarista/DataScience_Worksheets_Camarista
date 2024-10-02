@@ -85,14 +85,39 @@ print(str(df))
   
 ```{r}
 #a. Import the csv file into the R environment. Write the codes.
-HouseholdData <- read.csv("E:/Github/Data Science Worksheets/DataScience_Worksheets_Camarista/Worksheet#3/HouseholdData.csv")
+HouseholdData <- read.csv("HouseholdData.csv")
 HouseholdData
 ```
 ```{r}
 #b. Convert the Sex into factor using factor() function and change it into integer.
 #[Legend: Male = 1 and Female = 2]. Write the R codes and its output.
-HouseholdData$sex <- factor(HouseholdData$sex, levels = c(1, 2), labels = c("Male", "Female"))
+HouseholdData$Sex <- as.numeric(factor(HouseholdData$Sex, levels = c("Male", "Female")))
 HouseholdData
+```
+```{r}
+#c. Convert the Type of Houses into factor and change it into integer. 
+#[Legend: Wood = 1; Concrete = 2; Semi-Concrete = 3]. 
+#Write the R codes and its output.
+HouseholdData$Types_of_Houses <- as.numeric(factor(HouseholdData$Types_of_Houses, levels = c("Wood", "Congrete", "Semi-Congrete")))
+HouseholdData
+```
+```{r}
+#d. On father’s occupation, factor it as Farmer = 1; Driver = 2; and Others = 3. 
+#What is the R code and its output?
+HouseholdData$Fathers_Occupation <- as.character(factor(HouseholdData$Fathers_Occupation, levels = c(1, 2, 3), labels = c("Farmer", "Driver", "Others")))
+
+HouseholdData
+```
+```{r}
+#e. Select only all females respondent that has a father whose occupation is driver. 
+#Write the codes and its output.
+subset(HouseholdData[,c(2:3)], Sex == 2 & Fathers_Occupation == "Driver")
+
+```
+```{r}
+#f. Select the respondents that have greater than or equal to 5 number of siblings attending school. 
+#Write the codes and its output.
+subset(HouseholdData[,c(1,5)], Siblings_at_School >= 5)
 ```
   
   
