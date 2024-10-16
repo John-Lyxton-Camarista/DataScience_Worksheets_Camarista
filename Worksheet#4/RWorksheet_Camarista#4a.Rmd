@@ -1,0 +1,18 @@
+---
+title: "RWorksheet_Camarista#4a"
+author: "John Lyxton Camarista"
+date: "2024-10-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### 1. The table below shows the data about shoe size and height. Create a data frame.
+```{r}
+height <- c(66.0, 68.0, 64.5, 65.0, 70.0, )
+```
+
+- a. Describe the data.
+  - 
