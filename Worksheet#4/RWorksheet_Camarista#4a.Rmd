@@ -9,10 +9,78 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#### 1. The table below shows the data about shoe size and height. Create a data frame.
+## 1. The table below shows the data about shoe size and height. Create a data frame.
 ```{r}
-height <- c(66.0, 68.0, 64.5, 65.0, 70.0, )
+height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 
+            71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 
+            69.0, 70.0)
+
+shoeSize <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 
+              13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+
+shoeData <- data.frame(Shoe_Size = shoeSize, Height = height)
+
+#got help from chat gpt to achieve the same layout from the Figure 1: Household Data, 
+#having 2 halves of the data frame.
+half <- ceiling(nrow(shoeData) / 2)
+first_half <- shoeData[1:half, ]
+second_half <- shoeData[(half+1):nrow(shoeData), ]
+
+combined <- cbind(first_half, second_half)
+
+combined
+print(str(shoeData))
 ```
 
 - a. Describe the data.
-  - 
+  - The data is consist of 28 rows and columns(Shoe Size and Height) with numerical values.  
+  
+  
+- b. Create a subset by males and females with their corresponding shoe size and height.
+What its result? Show the R scripts.
+```{r}
+gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", 
+            "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+
+withGender <- cbind(shoeData, Gender = gender)
+
+half <- ceiling(nrow(withGender) / 2)
+first_half <- withGender[1:half, ]
+second_half <- withGender[(half+1):nrow(withGender), ]
+
+combinedWithGender <- cbind(first_half, second_half)
+
+combinedWithGender
+```
+  - c. Find the mean of shoe size and height of the respondents. Write the R scripts and its
+result.
+```{r}
+dataMeanShoeSize <- round(mean(withGender$Shoe_Size),2)
+print(paste("The mean of the Shoe size is ", dataMeanShoeSize))
+
+dataMeanHeight <- round(mean(withGender$Height),2)
+print(paste("The mean of the Height is ", dataMeanHeight))
+```
+- d. Is there a relationship between shoe size and height? Why?
+  - "Yes, there is. As height increases, shoe size also increases. This increase in shoe or foot size is necessary to support the person's relative height. Similarly, when constructing tall buildings, a deep foundation is required."
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
