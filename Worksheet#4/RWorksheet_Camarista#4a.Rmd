@@ -79,11 +79,38 @@ months <- c("March", "April", "January", "November", "January", "September", "Oc
 factor_months_vector <- factor(months)
 factor_months_vector
 ```
+
 ## 3. Then check the summary() of the months_vector and factor_months_vector. Interpret the results of both vectors. Are they both equally useful in this case?
 ```{r}
 summary_factor_months <- summary(factor_months_vector)
 summary_factor_months
 ```
+
+## 4. Create a vector and factor for the table below.
+```{r}
+
+direction <- c("East", "West", "North")
+frequency <- c(1, 4, 3)
+
+factor_data <- factor(direction, levels = c("East", "West", "North"))
+
+direction_data <- data.frame(Direction = factor_data, Frequency = frequency)
+
+direction_data
+
+```
+
+## 5. Enter the data below in Excel with file name = import_march.csv
+-a. Import the excel file into the Environment Pane using read.table() function.
+Write the code.
+```{r}
+import_march_data <- read.table("import_march.csv", header = TRUE, sep = ",")
+```
+-b. View the dataset. Write the R scripts and its result.
+```{r}
+import_march_data
+```
+
 
   
   
