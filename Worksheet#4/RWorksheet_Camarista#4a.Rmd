@@ -111,8 +111,25 @@ import_march_data <- read.table("import_march.csv", header = TRUE, sep = ",")
 import_march_data
 ```
 
+# Using Conditional Statements (IF-ESE)
+## 6. Fyll Search
 
-  
+-Exhaustive search is a methodology for finding an answer by exploring all possible cases. When trying to find a desired number in a set of given numbers, the method of finding the corresponding number by checking all elements in the set one by one can be called an exhaustive search. Implement an exhaustive search function that meets the input/output conditions below.
+-a. Create an R Program that allows the User to randomly select numbers from 1 to 50. Then display the chosen number. If the number is beyond the range of the selected choice, it will have to display a string “The number selected is beyond the range of 1 to 50”. If number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the input number.
+
+```{r}
+num_selected <- readline(prompt = "Enter a number between 1 to 50: ")
+if(num_selected > 50){
+  print("The number selected is beyond the range of 1 to 50")
+}else if(num_selected == 20){
+  print("TRUE")
+}else{
+  num_selected
+}
+
+
+```
+
   
   
   
