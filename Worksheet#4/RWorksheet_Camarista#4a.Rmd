@@ -114,7 +114,7 @@ import_march_data
 # Using Conditional Statements (IF-ESE)
 ## 6. Fyll Search
 
--Exhaustive search is a methodology for finding an answer by exploring all possible cases. When trying to find a desired number in a set of given numbers, the method of finding the corresponding number by checking all elements in the set one by one can be called an exhaustive search. Implement an exhaustive search function that meets the input/output conditions below.
+  Exhaustive search is a methodology for finding an answer by exploring all possible cases. When trying to find a desired number in a set of given numbers, the method of finding the corresponding number by checking all elements in the set one by one can be called an exhaustive search. Implement an exhaustive search function that meets the input/output conditions below.
 -a. Create an R Program that allows the User to randomly select numbers from 1 to 50. Then display the chosen number. If the number is beyond the range of the selected choice, it will have to display a string “The number selected is beyond the range of 1 to 50”. If number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the input number.
 
 ```{r}
@@ -130,14 +130,97 @@ if(num_selected > 50){
 
 ```
 
+## 7. Change
+  At ISATU University’s traditional cafeteria, snacks can only be purchased with bills. A long-standing rule at the concession stand is that snacks must be purchased with as few coins as possible. There are three types of bills: 50 pesos, 100 pesos, 200 pesos, 500 pesos, 1000 pesos.
+  - a. Write a function that prints the minimum number of bills that must be paid, given the price of the snack.
+  Input: Price of snack (a random number divisible by 50) Output: Minimum number of bills needed to purchase a snack.
   
+```{r}
+minBills <- function(priceOfSnack){
+  bills <- c(1000, 500, 200, 100, 50)
+
+numOfBills <- 0
+ for(bill in bills){
+   if(!is.na(priceOfSnack) >= bill){
+     count <- priceOfSnack %/% bill
+     numOfBills <- numOfBills + count
+     priceOfSnack <- priceOfSnack %% bill
+   }
+ }
+  return(numOfBills)
+}
+
+priceOfSnack <- as.numeric(readline(prompt = "Input the price of the snack: "))
+result <- minBills(priceOfSnack)
+result
+```
+##8. The following is each student’s math score for one semester. Based on this, answer the following questions.
+  - a. Create a dataframe from the above table. Write the R codes and its output.
+```{r}
+name <- c("Annie", "Thea", "Steve", "Hanna")
+grade1 <- c(85, 65, 75, 95)
+grade2 <- c(65, 75, 55, 75)
+grade3 <- c(85, 90, 80, 100)
+grade4 <- c(100, 90, 85, 90)
+
+reportCard <- data.frame(Name = name, Grade1 = grade1, Grade2 = grade2, Grade3 = grade3, Grade4 = grade4)
+
+reportCard
+```
+
+  - b. Without using the rowMean function, output the average score of students whose average math score over 90 points during the semester. write R code and its output.    
+  Example Output: Annie’s average grade this semester is 88.75.
+
+```{r}
+for(i in 1:nrow(reportCard)){
+  total <- reportCard$Grade1[i] + reportCard$Grade2[i] + reportCard$Grade3[i] + reportCard$Grade4[i]
+  average <- total / 4
   
+  if(average > 90){
+    cat(reportCard$Name[i], "'s average grade this semester is", average)
+  }
+}
+```
+
+
+  - c. Without using the mean function, output as follows for the tests in which the average score was less than 80 out of 4 tests.   
+  Example output: The nth test was difficult.
   
+```{r}
+gradeLvl <- c("Grade1", "Grade2", "Grade3", "Grade4")
+numOfStudents <- nrow(reportCard)
+
+for(i in 1:length(gradeLvl)){
+  totalTest <- sum(reportCard[[gradeLvl[i]]])
+  averageTest <- totalTest / numOfStudents
   
+  if(averageTest < 80){
+    cat("The", i, "th Test was difficult")
+  }
+}
+```
+  - d. Without using the max function, output as follows for students whose highest score for a semester exceeds 90 points.
+  Example Output: Annie’s highest grade this semester is 95.
+```{r}
+for(i in 1:nrow(reportCard)){
   
+    high <- reportCard$Grade1[i]
   
-  
-  
+  if(reportCard$Grade2[i] > high){
+    high <- reportCard$Grade2[i]
+  }
+  if(reportCard$Grade3[i] > high){
+    high <- reportCard$Grade3[i]
+  }
+  if(reportCard$Grade4[i] > high){
+    high <- reportCard$Grade4[i]
+  }
+  print(paste(reportCard$Name[i], "'s highest grade this semester is", high))
+}
+
+```
+
+
   
   
   
