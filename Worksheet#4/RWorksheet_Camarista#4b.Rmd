@@ -163,6 +163,95 @@ plot(
 legend("topright", legend = levels(iris$Species), col = 1:3, pch = 1:3)
 
 ```
-  - f. Interpret the result
+  - f. Interpret the result   
     *The Setosa species' sepal width has a relation to its sepal length. The longer the length, the wider it's width.
     *While the Versicolor and Virginica species tend to overlap in the middle. The longer their length, their width almost stays the same arounf 3.0.
+    
+#Basic Cleaning and Transformation of Objects
+##7. Import the alexa-file.xlsx. Check on the variations. Notice that there are extra whitespaces among black variants (Black Dot, Black Plus, Black Show, Black Spot). Also on the white variants (White Dot, White Plus, White Show, White Spot).
+  - a. Rename the white and black variants by using gsub() function.
+```{r}
+library(readxl)
+library(dplyr)
+alexa_data <- read_excel("E:/Github/Data Science Worksheets/DataScience_Worksheets_Camarista/Worksheet#4/alexa_file.xlsx")
+head(alexa_data)
+```
+  **Syntax:**
+  RObject$columnName <- gsub("Old Name", "New Name", RObject$columnName)
+  Write the R scripts and show an example of the output by getting a snippet. To embed an image into Rmd, use the function below: knitr::include_graphics("file path")
+```{r}
+alexa_data$variation <- trimws(alexa_data$variation)
+
+
+  alexa_data$variation <- gsub("Black[[:space:]]+", "Black ", alexa_data$variation)
+  alexa_data$variation <- gsub("White[[:space:]]+", "White ", alexa_data$variation)
+
+head(alexa_data)
+
+knitr::include_graphics("E:/Github/Data Science Worksheets/DataScience_Worksheets_Camarista/Worksheet#4/Screenshot 2024-11-01 000948.png")
+```
+  - b. Get the total number of each variations and save it into another object. Save the object as variations.RData. Write the R scripts. What is its result?
+Hint: Use the dplyr package. Make sure to install it before loading the package.
+  **Syntax for dplyr**
+  RObject %>%
+count(RObject$columnName)
+```{r}
+variant_counts <- alexa_data %>%
+  count(variation)
+
+save(variant_counts, file = "variations.RData")
+
+print(variant_counts)
+
+```
+  **Sample Output**
+  - c. From the variations.RData, create a barplot(). Complete the details of the chart which include the title, color, labels of each bar.
+```{r}
+load("variations.RData")
+
+barplot(
+  variant_counts$n,
+  names.arg = variant_counts$variation,
+  main = "Distribution of Alexa Variants",
+  xlab = "Variants",
+  ylab = "Count",
+  col = rainbow(length(variant_counts$variation)),
+  las = 2
+)
+print(unique(alexa_data$variant))
+
+```
+  - d. Create a barplot() for the black and white variations. Plot it in 1 frame, side by side. Complete the details of the chart.
+```{r}
+black_variants <- variant_counts %>%
+  filter(grepl("Black", variation))
+
+white_variants <- variant_counts %>%
+  filter(grepl("White", variation))
+
+par(mfrow = c(1, 2))
+
+barplot(
+  black_variants$n,
+  names.arg = black_variants$variation,
+  main = "Black Variants",
+  xlab = "Total Numbers",
+  ylab = "Variants",
+  col = c("black", "red", "green", "blue", "cyan"),
+  las = 2
+)
+
+barplot(
+  white_variants$n,
+  names.arg = white_variants$variation,
+  main = "White Variants",
+  xlab = "Total Numbers",
+  ylab = "Variants",
+  col = c("black", "red", "green", "blue", "cyan"),
+  las = 2
+)
+
+par(mfrow = c(1, 1))
+
+```
+  
